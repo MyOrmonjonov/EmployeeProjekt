@@ -88,8 +88,9 @@
         %>
         <div class="group-card">
             <h2><%= group.getName() %></h2>
-            <form>
-
+            <form action="student.jsp">
+                <input type="hidden" name="groupId" value="<%=group.getId()%>">
+                <button class="btn-enter">Kirish</button>
             </form>
         </div>
         <%

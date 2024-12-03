@@ -80,7 +80,7 @@
     <div class="student-name">
         <strong>Talaba:</strong> <%= studentName %>
     </div>
-    <form action="/addPayment" method="post">
+    <form action="addPayment" method="post">
         <input type="hidden" name="studentId" value="<%= studentId %>">
         <div class="form-group">
             <h2>Tolov summasini kiriting</h2>

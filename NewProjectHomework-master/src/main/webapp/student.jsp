@@ -75,6 +75,7 @@
         <form action="addPayment.jsp" method="get">
             <input type="hidden" name="studentId" value="<%= student.getId() %>">
             <input type="hidden" name="studentName" value="<%= student.getName() %>">
+            <input type="hidden" name="courseId" value="<%=Integer.parseInt(request.getParameter("courseId"))%>">
             <button class="btn-add-payment">Add Payment</button>
         </form>
     </div>

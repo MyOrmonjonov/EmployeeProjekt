@@ -13,12 +13,32 @@
             background-color: #f9f9f9;
             color: #333;
         }
-        h1 {
-            text-align: center;
-            padding: 20px;
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
+        }
+        header h1 {
             margin: 0;
+            font-size: 1.8em;
+        }
+        header .report-button {
+            background-color: white;
+            color: #4CAF50;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header .report-button:hover {
+            background-color: #45a049;
+            color: white;
         }
         .course-container {
             display: flex;
@@ -57,10 +77,15 @@
     </style>
 </head>
 <body>
-<h1>Kurslar ro'yxati</h1>
+<header>
+    <h1>Kurslar ro'yxati</h1>
+    <a href="Reprot.jsp" class="report-button">Report</a>
+</header>
 <div class="course-container">
     <%
-        List<Course> courses = CourseshowRepo.showCourse();
+//        List<Course> courses = CourseshowRepo.showCourse();
+       CourseshowRepo courses1=new CourseshowRepo();
+        List<Course> courses = courses1.show();
         if (courses != null && !courses.isEmpty()) {
             for (Course course : courses) {
     %>

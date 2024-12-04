@@ -85,6 +85,7 @@
         <div class="form-group">
             <h2>Tolov summasini kiriting</h2>
             <input type="text" id="amount" name="amount" placeholder="To'lov summasini kiriting">
+            <input type=hidden name="courseId" value="<%=Integer.parseInt(request.getParameter("courseId"))%>">
         </div>
         <button type="submit">Saqlash</button>
     </form>

@@ -68,6 +68,7 @@
 
        <form action="group.jsp">
         <input type="hidden" name="modulId" value="<%=modul.getId()%>">
+        <input type="hidden" name="courseId" value="<%=courseId%>">
            <button class="button">Kirish</button>
        </form>
     </div>

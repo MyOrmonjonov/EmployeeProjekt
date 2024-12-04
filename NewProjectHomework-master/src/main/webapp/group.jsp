@@ -90,6 +90,7 @@
             <h2><%= group.getName() %></h2>
             <form action="student.jsp">
                 <input type="hidden" name="groupId" value="<%=group.getId()%>">
+                <input type="hidden" name="courseId" value="<%=Integer.parseInt(request.getParameter("courseId"))%>">
                 <button class="btn-enter">Kirish</button>
             </form>
         </div>

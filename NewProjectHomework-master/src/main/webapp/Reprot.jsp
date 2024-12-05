@@ -1,6 +1,6 @@
 <%@ page import="java.util.*" %>
-<%@ page import="org.example.demo6.MyListener" %>
-<%@ page import="jakarta.persistence.EntityManager" %>
+<%@ page import="org.example.demo6.ReportRepo" %>
+<%@ page import="org.example.demo6.Reprot" %>
 <html>
 <head>
     <title>Course Reports</title>
@@ -36,7 +36,31 @@
 <body>
 <div class="container">
     <h1>Course Reports</h1>
-
+    <%
+        // Reportlarni olish
+        List<Reprot> reports = ReportRepo.findAllRepo();
+        if (reports != null && !reports.isEmpty()) {
+            for (Reprot reprot : reports) {
+    %>
+    <div class="course-section">
+        <div class="course-name">
+            Kurs nomi: <%= reprot.getCourseName() %>
+        </div>
+        <div class="total-amount">
+            Talabalar soni: <%= reprot.getCourseStudentAmount() %>
+        </div>
+        <div class="total-amount">
+            Umumiy summa: <%= reprot.getTotalsum() %> so'm
+        </div>
+    </div>
+    <%
+        }
+    } else {
+    %>
+    <p>Hech qanday kurs topilmadi.</p>
+    <%
+        }
+    %>
 </div>
 </body>
 </html>

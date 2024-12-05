@@ -1,6 +1,7 @@
 <%@ page import="org.example.demo6.ModulRepo" %>
 <%@ page import="org.example.demo6.Modul" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -58,8 +59,9 @@
 <div class="container">
     <%-- Modullarni olish --%>
     <%
+        int page1 = Integer.parseInt(Objects.requireNonNullElse(request.getParameter("page"), "1"));
         int courseId = Integer.parseInt(request.getParameter("courseId"));
-        List<Modul> moduls = ModulRepo.getModulsByCourseId(courseId);
+        List<Modul> moduls = ModulRepo.getModulsByCourseId(courseId, page1);
 
         for (Modul modul : moduls) {
     %>
@@ -72,9 +74,22 @@
            <button class="button">Kirish</button>
        </form>
     </div>
-    <%
+          <%
+        }
+
+        Long count = ModulRepo.count();
+        int ceil = (int)Math.ceil(count / 10.0);
+
+        for (int i=1;i<=ceil;i++){
+            %>
+        <a class="btn btn-dark" href="?page=<%=i%>&courseId=<%=courseId%>"><%=i%></a>
+        <%
+
+
         }
     %>
 </div>
+
+
 </body>
 </html>
